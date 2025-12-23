@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Простой Чат-бот</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-overlay" id="authOverlay">
+        <div class="auth-container">
+            <div class="auth-header">
+                <h3>Вход в систему</h3>
+            </div>
+            <form id="authForm" class="auth-form">
+                <div class="form-group">
+                    <label for="username">Логин</label>
+                    <input type="text" id="username" name="username" placeholder="Введите логин" required minlength="4" maxlength="64">
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" name="password" placeholder="Введите пароль" required minlength="6" maxlength="32">
+                </div>
+                <div class="auth-buttons">
+                    <button type="button" id="registerBtn" class="auth-btn register-btn">Зарегистрироваться</button>
+                    <button type="submit" id="loginBtn" class="auth-btn login-btn">Войти</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="error-popup-overlay" id="errorPopupOverlay">
+        <div class="error-popup-container">
+            <div class="error-popup-content">
+                <div class="error-popup-message" id="errorPopupMessage"></div>
+                <button class="error-popup-button" id="errorPopupButton">Ок</button>
+            </div>
+        </div>
+    </div>
+    <div class="chat-wrapper">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h3>Чат-бот</h3>
+                <button id="clear-chat" class="clear-btn">Очистить историю</button>
+            </div>
+            <div id="chat-messages" class="chat-messages">
+            </div>
+            <div class="typing-indicator" id="typing-indicator">
+                <img src="https://cdn-icons-png.flaticon.com/512/4712/4712039.png" alt="Аватарка бота" class="message-avatar">
+                <div class="typing-text">Бот печатает...</div>
+            </div>
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Введите ваше сообщение...">
+                <button id="send-button">Отправить</button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="utils.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
