@@ -16,9 +16,9 @@ router = APIRouter(tags=["Auth"])
 async def register(session: SessionDep, user_create: UserCreate):
     user = await user_repo.get_user_by_username(session, user_create.username)
     if user:
-        logger.warning(f'Неудачная попытка регистрации {user.username}')
+        logger.warning(f'Неудачная попытка регистрации {user_create.username}')
         raise HTTPException(status_code=400, detail="Имя пользователя уже используется")
-    logger.info(f'Пользователь успешно зашел в систему {user.username}')
+    logger.info(f'Пользователь успешно зашел в систему {user_create.username}')
     await user_repo.create_user(session, user_create)
 
 
